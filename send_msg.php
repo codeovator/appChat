@@ -1,50 +1,50 @@
   <?php
-  $msg = $_REQUEST['msg'];
-  require 'assets/facebook.php';
-  require 'assets/connect.php';
-  require 'functions.php';
+   $msg = $_REQUEST['msg'];
+//   require 'assets/facebook.php';
+//   require 'assets/connect.php';
+//   require 'functions.php';
 
-// Create our Application instance (replace this with your appId and secret).
-  $facebook = new Facebook(array(
-    'appId'  => '1434847386732269',
-    'secret' => '1c500d02a9a8c52dd1b8fd84546ec172',
-    ));
+// // Create our Application instance (replace this with your appId and secret).
+//   $facebook = new Facebook(array(
+//     'appId'  => '1434847386732269',
+//     'secret' => '1c500d02a9a8c52dd1b8fd84546ec172',
+//     ));
 
-// Get User ID
-  $user = $facebook->getUser();
+// // Get User ID
+//   $user = $facebook->getUser();
 
-// We may or may not have this data based on whether the user is logged in.
-//
-// If we have a $user id here, it means we know the user is logged into
-// Facebook, but we don't know if the access token is valid. An access
-// token is invalid if the user logged out of Facebook.
+// // We may or may not have this data based on whether the user is logged in.
+// //
+// // If we have a $user id here, it means we know the user is logged into
+// // Facebook, but we don't know if the access token is valid. An access
+// // token is invalid if the user logged out of Facebook.
 
-  if ($user) {
-    try {
-    // Proceed knowing you have a logged in user who's authenticated.
-      $user_profile = $facebook->api('/me');
-    } catch (FacebookApiException $e) {
-      error_log($e);
-      $user = null;
-    }
-  }
+//   if ($user) {
+//     try {
+//     // Proceed knowing you have a logged in user who's authenticated.
+//       $user_profile = $facebook->api('/me');
+//     } catch (FacebookApiException $e) {
+//       error_log($e);
+//       $user = null;
+//     }
+//   }
 
 // Login or logout url will be needed depending on current user state.
-  if ($user) {
-    $logoutUrl = $facebook->getLogoutUrl();
-    saveProfile($user_profile);
-    $result = getArea($user_profile);
-  } else {
-    $statusUrl = $facebook->getLoginStatusUrl();
-    $loginUrl = $facebook->getLoginUrl();
-    saveProfile('none');
-    $result = getArea('none');
-  }
+  // if ($user) {
+  //   $logoutUrl = $facebook->getLogoutUrl();
+  //   saveProfile($user_profile);
+  //   $result = getArea($user_profile);
+  // } else {
+  //   $statusUrl = $facebook->getLoginStatusUrl();
+  //   $loginUrl = $facebook->getLoginUrl();
+  //   saveProfile('none');
+  //   $result = getArea('none');
+  // }
   ?>
   <!DOCTYPE html>
   <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    
+
     <script src="js/jquery.min.js"></script>
     <script src="https://www.google.com/jsapi"></script>
     <title>chatlas</title>
@@ -67,13 +67,12 @@
     </noscript>
     <script type="text/javascript">
 
-
       google.load('search', '1');
 
       var imageSearch;
 
       function addPaginationLinks() {
-        
+
           // To paginate search results, use the cursor function.
           var cursor = imageSearch.cursor;
           var curPage = cursor.currentPageIndex; // check what page the app is on
@@ -126,14 +125,15 @@
               // There is also a result.url property which has the escaped version
               var img_path = result.url;
               newImg.src=img_path;//"/image-search/v1/result.tbUrl;"
-              imgContainer.appendChild(title);
-              imgContainer.appendChild(newImg);
+              //imgContainer.appendChild(title);
+              //imgContainer.appendChild(newImg);
               $.ajax({
                 type: "POST",
                 url: "write_image.php",
                 data: { img_url: img_path, img_name: result.titleNoFormatting, post_msg: "<?php echo $msg; ?>"}
-              }).done(function() {
-                alert('ssssaaa');
+              }).done(function(data) {
+                $('#dashboard').show();
+                $('#latest_img').attr('src', data);
               });
 
               // Put our title + image in the content
@@ -146,7 +146,7 @@
         }
 
         function OnLoad() {
-          
+
           // Create an Image Search instance.
           imageSearch = new google.search.ImageSearch();
 
@@ -174,13 +174,15 @@
 
     </head>
     <body style="font-family: Arial;border: 0 none;">
+    <div id="branding"  style="float: left;display:none"></div><br />
+      <div id="content" style="display:none">Loading...</div>
       <section id="dashboard">
         <div class="content">
           <ul>
             <?php 
         //get all images
             ?>
-            <li><img src="http://refaktorthemes.com/other/sites/default/files/1.jpg"/></li>
+            <li><img src="" id="latest_img"/></li>
           </ul>
         </div>
       </section>

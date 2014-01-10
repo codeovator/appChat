@@ -11,7 +11,7 @@
 	$fp = fopen('post_images/'.$img_name,'w');
 	fwrite($fp, $rawdata); 
 	fclose($fp);
-	echo "aa";
+	
       // Create Image From Existing File
       $jpg_image = imagecreatefromjpeg('post_images/'.$img_name);
 
@@ -54,6 +54,7 @@
       imagejpeg($new_image, 'post_images/new_'.$img_name);
       // END
 
+      echo 'post_images/new_'.$img_name;
       // Clear Memory
       imagedestroy($jpg_image);
       ?>
