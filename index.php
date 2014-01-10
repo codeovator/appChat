@@ -83,6 +83,7 @@ if ($user) {
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
 	<body>
+		<input type="hidden" value="<?php echo $user?'1':'0';?>" id="is_fb_logged"/>
 
 		<!-- Header -->
 			<section id="header">
@@ -116,19 +117,7 @@ if ($user) {
 
 			<!-- Banner -->
 			<section id="map">
-				<header>
-					<h2>It's Me</h2>
-				</header>
-				<?php if ($user): ?>
-				<li>Hi <?php echo $user_profile['first_name'].' '.$user_profile['gender'];?></li>
-			<?php else: ?>
-				<span class="badge">
-					<p class="my-name"></p>
-				</span>
-			<?php endif;?>
-				<footer>
-					<a href="#first" class="button style2 scrolly">Act on this message</a>
-				</footer>
+				<img src="http://maps.googleapis.com/maps/api/streetview?size=500x500&location=40.720032,-73.988354&heading=235&sensor=false">
 			</section>
 
 		<section id="article">
