@@ -48,16 +48,17 @@ if ($user) {
 if ($user) {
 	$logoutUrl = $facebook->getLogoutUrl();
 	saveProfile($user_profile);
+	$result = getArea($user_profile);
 } else {
 	$statusUrl = $facebook->getLoginStatusUrl();
 	$loginUrl = $facebook->getLoginUrl();
 	saveProfile('none');
+	$result = getArea('none');
 }
 
 // This call will always work since we are fetching public data.
 // $naitik = $facebook->api('/naitik');
 ?>
-<?php $result = getArea($user_profile);?>
 <!DOCTYPE HTML>
 <!--
 	Overflow 1.1 by HTML5 UP
