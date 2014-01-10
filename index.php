@@ -51,6 +51,7 @@ if ($user) {
 } else {
 	$statusUrl = $facebook->getLoginStatusUrl();
 	$loginUrl = $facebook->getLoginUrl();
+	saveProfile('none');
 }
 
 // This call will always work since we are fetching public data.

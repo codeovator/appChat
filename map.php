@@ -8,6 +8,7 @@
 						$('#banner').hide(200);
 						$('#map').show(200);
 					}
+					$('#footer').hide();
 					var name=$('.my-name').html();
 					var lang="<?php echo $result['latitude']?>";
 					var lat="<?php echo $result['longitude']?>";
