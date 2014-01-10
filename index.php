@@ -48,12 +48,12 @@ if ($user) {
 if ($user) {
 	$logoutUrl = $facebook->getLogoutUrl();
 	saveProfile($user_profile);
-	$result = getArea();
+	$result = getArea($user_profile);
 } else {
 	$statusUrl = $facebook->getLoginStatusUrl();
 	$loginUrl = $facebook->getLoginUrl();
 	saveProfile('none');
-	$result = getArea();
+	$result = getArea('none');
 }
 
 // This call will always work since we are fetching public data.
