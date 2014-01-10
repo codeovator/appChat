@@ -48,9 +48,9 @@ $(document).ready(function(){
 	});
 
 	$('#ping').click(function(){
-			$('#chatroom').hide(200);
-			$('#dashboard').show(200);
-			$('#footer').hide();
+		if($('#user-message').val()!=''){
+			$('#setmsg').submit();
+		}
 	});
 
 
