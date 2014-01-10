@@ -16,11 +16,13 @@ function getArea($user_profile){
 		$lat = $location->latitude;
 		$lon = $location->longitude;
 
-		if($user_profile=="none"){
-		}else{
-			$sql = "UPDATE users SET lat=".$lat." AND long=".$lon." WHERE fb_id=".$user_profile["id"];
-			mysql_query($sql);
-		}
+		// if($user_profile=="none"){
+		// 	$sql = "UPDATE users SET lat=".$lat." AND long=".$lon." WHERE id=".$user_profile["id"];
+		// 	mysql_query($sql);
+		// }else{
+		// 	$sql = "UPDATE users SET lat=".$lat." AND long=".$lon." WHERE fb_id=".$user_profile["id"];
+		// 	mysql_query($sql);
+		// }
 
 		// mysql_query("INSERT INTO users (lat, long) VALUES ('".$lat."','".$lon."')");
 		return array('latitude'=>$lat,'longitude'=>$lon);
@@ -35,11 +37,13 @@ function getAllLoggedUser(){
 
 function saveProfile($user_profile){
 	if($user_profile=="none"){
-		mysql_query("INSERT INTO users (name,is_online) VALUES ('guest','y')");
+		$result = getArea();
+		mysql_query("INSERT INTO users (name,lat,long,is_online) VALUES ('guest','".$result['latitude']."','".$result['longitude']."','y')");
 	}else{
 		$result = mysql_query("SELECT fb_id FROM users where fb_id='".$user_profile['id']."'");
-		if($result){
-			mysql_query("INSERT INTO users (name, gender,fb_id,is_online) VALUES ('".$user_profile['first_name']."', '".$user_profile['gender']."','".$user_profile['id']."','y')");
+		if(!$result){
+			$result = getArea();
+			mysql_query("INSERT INTO users (name, gender,lat,long,fb_id,is_online) VALUES ('".$user_profile['first_name']."', '".$user_profile['gender']."','".$result['latitude']."','".$result['longitude']."','".$user_profile['id']."','y')");
 		}
 	}
 }
