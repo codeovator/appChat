@@ -114,7 +114,7 @@ if ($user) {
 			</div>
 			<?php }?>
 			<span class="badge">
-				<p>Howdy, <?php echo ucwords($user_profile['first_name']);?></p>
+				<p>Howdy, <?php echo strtoupper($user_profile['first_name']);?></p>
 			</span>
 		<?php else: ?>
 			<div class="4u">
