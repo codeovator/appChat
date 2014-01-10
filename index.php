@@ -125,7 +125,7 @@ if ($user) {
 			</span>
 		<?php endif;?>
 		<footer>
-			<a href="#first" id="start-map" class="button style2 scrolly">Act on this message</a>
+			<a href="#first" id="start-map" class="button style2 scrolly">Checkout buddies near your location...</a>
 		</footer>
 	</section>
 

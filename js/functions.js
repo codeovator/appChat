@@ -28,6 +28,7 @@ $(document).ready(function(){
 			$('#header').hide(200);
 			$('#banner').show(200);
 			$('.my-name').html('Howdy, '+ ($('#user-name').val()).toUpperCase());
+			$('#footer').hide();
 		}else{
 			if($('#user-name').val()==''){
 				alert('Please enter your name');
@@ -35,6 +36,7 @@ $(document).ready(function(){
 				$('#header').hide(200);
 				$('#banner').show(200);
 				$('.my-name').html('Howdy, '+ ($('#user-name').val()).toUpperCase());
+				$('#footer').hide();
 			}
 		}
 	});
