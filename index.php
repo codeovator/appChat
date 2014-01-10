@@ -83,6 +83,7 @@ if ($user) {
 	<noscript>
 		<link rel="stylesheet" href="css/skel-noscript.css" />
 		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="http://refaktorthemes.com/other/sites/default/files/css/css_TADBuXPPmrbFPyk6hDkPf84uFQkeNTvGKIQWxMUpw28.css" />
 	</noscript>
 	<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 </head>
@@ -153,6 +154,18 @@ if ($user) {
 		<footer>
 			<a href="#banner" id="ping" class="button style2 scrolly scrolly-centered">SMACK IN</a>
 		</footer>
+	</section>
+
+
+	<section id="dashboard">
+		<div class="content">
+			<ul>
+			<?php 
+				//get all images
+			?>
+			<li><img src="http://refaktorthemes.com/other/sites/default/files/1.jpg"/></li>
+			</ul>
+		</div>
 	</section>
 
 	<section id="article">

@@ -295,6 +295,28 @@
 		letter-spacing: 6px;
 	}
 
+
+	/*********************************************************************************/
+	/* dashboard                                                                        */
+	/*********************************************************************************/
+
+	#dashboard
+	{
+		padding: 3em 2em 3em 2em;
+		background-size: auto 150%;
+	}
+
+	#dashboard header
+	{
+		margin: 0 0 1em 0;
+	}
+	
+	#dashboard header h2
+	{
+		font-size: 1.5em;
+		letter-spacing: 6px;
+	}
+
 	/*********************************************************************************/
 	/* Footer                                                                        */
 	/*********************************************************************************/
@@ -345,4 +367,7 @@
 		background: white;
 		padding: 15%;
 		margin-left: 100%!important;
+	}
+	#dashboard .content img{
+		width: 80%;
 	}

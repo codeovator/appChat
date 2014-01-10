@@ -47,6 +47,12 @@ $(document).ready(function(){
 			$('#footer').hide();
 	});
 
+	$('#ping').click(function(){
+			$('#chatroom').hide(200);
+			$('#dashboard').show(200);
+			$('#footer').hide();
+	});
+
 
 if($('#is_fb_logged').val()==1){
 	$('#header').hide();
