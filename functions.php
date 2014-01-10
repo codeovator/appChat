@@ -38,13 +38,14 @@ function getAllLoggedUser(){
 function saveProfile($user_profile){
 	if($user_profile=="none"){
 		$result = getArea();
-		mysql_query("INSERT INTO users (name,lat,long,is_online) VALUES ('guest','".$result['latitude']."','".$result['longitude']."','y')");
+		echo mysql_query("INSERT INTO users (name,lat,long,is_online) VALUES ('guest','".$result['latitude']."','".$result['longitude']."','y')");
 	}else{
 		$result = mysql_query("SELECT fb_id FROM users where fb_id='".$user_profile['id']."'");
 		if(!$result){
 			$result = getArea();
-			mysql_query("INSERT INTO users (name, gender,lat,long,fb_id,is_online) VALUES ('".$user_profile['first_name']."', '".$user_profile['gender']."','".$result['latitude']."','".$result['longitude']."','".$user_profile['id']."','y')");
+			echo mysql_query("INSERT INTO users (name, gender,lat,long,fb_id,is_online) VALUES ('".$user_profile['first_name']."', '".$user_profile['gender']."','".$result['latitude']."','".$result['longitude']."','".$user_profile['id']."','y')");
 		}
 	}
+	die('ranjana');
 }
 ?>
