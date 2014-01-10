@@ -49,4 +49,10 @@ $(document).ready(function(){
 		}
 	});
 
+
+	if($('#is_fb_logged').val()==1){
+		$('#header').hide();
+		$('#banner').hide();
+	}
+
 });
