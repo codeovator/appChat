@@ -53,7 +53,7 @@ if ($user) {
 
 // This call will always work since we are fetching public data.
 // $naitik = $facebook->api('/naitik');
-print_r($user_profile);
+
 
 ?>
 
@@ -102,9 +102,30 @@ print_r($user_profile);
 				<header>
 					<h2>It's Me</h2>
 				</header>
+				<?php if ($user): ?>
+				<li>Hi <?php echo $user_profile['first_name'].' '.$user_profile['gender'];?></li>
+			<?php else: ?>
 				<span class="badge">
 					<p class="my-name"></p>
 				</span>
+			<?php endif;?>
+				<footer>
+					<a href="#first" class="button style2 scrolly">Act on this message</a>
+				</footer>
+			</section>
+
+			<!-- Banner -->
+			<section id="map">
+				<header>
+					<h2>It's Me</h2>
+				</header>
+				<?php if ($user): ?>
+				<li>Hi <?php echo $user_profile['first_name'].' '.$user_profile['gender'];?></li>
+			<?php else: ?>
+				<span class="badge">
+					<p class="my-name"></p>
+				</span>
+			<?php endif;?>
 				<footer>
 					<a href="#first" class="button style2 scrolly">Act on this message</a>
 				</footer>
@@ -346,6 +367,7 @@ print_r($user_profile);
 		<section id="footer">
 			<ul class="icons">
 			<?php if ($user): ?>
+				<li>Hi <?php echo $user_profile['first_name'];?></li>
 				<li><a href="<?php echo $logoutUrl; ?>">Logout</a></li>
 			<?php else: ?>
 			</ul>

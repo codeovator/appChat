@@ -1252,6 +1252,61 @@
 	}
 
 	/*********************************************************************************/
+	/* map                                                                        */
+	/*********************************************************************************/
+
+	#map
+	{
+		position: relative;
+		color: #fff;
+		text-shadow: 0 0 0.5px rgba(255,255,255,0.25);
+		text-align: center;
+		background: #35b88f url('images/banner.svg') bottom center no-repeat;
+		padding: 5em 0 5em 0;
+		margin: 0;
+		background-size: 125% auto;
+	}
+
+	#map .button
+	{
+		color: #35b882;
+		text-shadow: 0 0 0.5px rgba(53,184,130,0.25);
+	}
+
+	#map header
+	{
+		margin: 0 0 2em 0;
+	}
+
+	#map header h2
+	{
+		font-weight: 400;
+		font-size: 1.75em;
+		letter-spacing: 8px;
+	}
+
+	#map p
+	{
+		margin: 0;
+	}
+
+	#map footer
+	{
+		margin: 2em 0 0 0;
+	}
+
+	#map a
+	{
+		color: inherit;
+		border-bottom-color: rgba(255,255,255,0.5);
+	}
+
+	#map a:hover
+	{
+		border-bottom-color: rgba(255,255,255,0);
+	}
+
+	/*********************************************************************************/
 	/* Footer                                                                        */
 	/*********************************************************************************/
 	
