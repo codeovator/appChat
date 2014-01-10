@@ -16,18 +16,23 @@ function getArea(){
 		$lat = $location->latitude;
 		$lon = $location->longitude;
 
-		mysql_query("INSERT INTO users (lat, long) VALUES ('".$lat."','".$lon."')");
+		$sql = 'UPDATE users
+        SET lat='.$lat.' AND long='.$long.
+        'WHERE fb_id='.$user_profile["id"];
+		mysql_query( $sql );
+
+		// mysql_query("INSERT INTO users (lat, long) VALUES ('".$lat."','".$lon."')");
 		return array('latitude'=>$lat,'longitude'=>$lon);
 	}	
 }
 
 function getAllLoggedUser(){
 
-	$result = mysql_query("SELECT name,gender FROM users where is_online='y'");
+	$result = mysql_query("SELECT * FROM users where is_online='y'");
 	return $result;
 }
 
 function saveProfile($user_profile){
-	mysql_query("INSERT INTO users (name, gender,fb_id,is_online) VALUES ('".$user_profile['first_name']."', '".$user_profile['gender']."','".$user_profile['id']."',1)");
+	mysql_query("INSERT INTO users (name, gender,fb_id,is_online) VALUES ('".$user_profile['first_name']."', '".$user_profile['gender']."','".$user_profile['id']."','y')");
 }
 ?>
