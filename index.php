@@ -56,7 +56,7 @@ if ($user) {
 // This call will always work since we are fetching public data.
 // $naitik = $facebook->api('/naitik');
 ?>
-<?php $result = getArea();?>
+<?php $result = getArea($user_profile);?>
 <!DOCTYPE HTML>
 <!--
 	Overflow 1.1 by HTML5 UP
