@@ -9,8 +9,10 @@
 						$('#map').show(200);
 					}
 					var name=$('.my-name').html();
+					var lang="<?php echo $result['latitude']?>";
+					var lat="<?php echo $result['longitude']?>";
 					var locations = [
-					[name, -33.723036, 151.269052, 4],
+					[name, lang, lat , 4],
 					['Coogee Beach', -33.923036, 151.259052, 5],
 					['Cronulla Beach', -34.028249, 151.157507, 3],
 					['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
