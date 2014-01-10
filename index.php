@@ -17,6 +17,7 @@
 
 require 'assets/facebook.php';
 require 'assets/connect.php';
+require 'functions.php';
 
 // Create our Application instance (replace this with your appId and secret).
 $facebook = new Facebook(array(
@@ -53,26 +54,6 @@ if ($user) {
 
 // This call will always work since we are fetching public data.
 // $naitik = $facebook->api('/naitik');
-
-$ip  = !empty($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
-$url = "http://freegeoip.net/json/$ip";
-$ch  = curl_init();
-
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-$data = curl_exec($ch);
-curl_close($ch);
-
-if ($data) {
-    $location = json_decode($data);
-
-    $lat = $location->latitude;
-    $lon = $location->longitude;
-
-    $sun_info = date_sun_info(time(), $lat, $lon);
-    print_r($sun_info);
-}
 ?>
 
 <!DOCTYPE HTML>
@@ -135,6 +116,7 @@ if ($data) {
 
 			<!-- Banner -->
 			<section id="map">
+			<?php echo getArea();?>
 				<img src="http://maps.googleapis.com/maps/api/staticmap?center=-15.800513,-47.91378&zoom=11&size=200x200&sensor=false">
 			</section>
 
