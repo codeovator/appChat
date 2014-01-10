@@ -52,7 +52,8 @@ if ($user) {
 }
 
 // This call will always work since we are fetching public data.
-$naitik = $facebook->api('/naitik');
+// $naitik = $facebook->api('/naitik');
+print_r($user);
 
 ?>
 
@@ -343,9 +344,11 @@ $naitik = $facebook->api('/naitik');
 		</section>
 		
 		<section id="footer">
+			<ul class="icons">
 			<?php if ($user): ?>
-				<a href="<?php echo $logoutUrl; ?>">Logout</a>
+				<li><a href="<?php echo $logoutUrl; ?>">Logout</a></li>
 			<?php else: ?>
+			</ul>
 			<ul class="icons">
 				<li><a href="#" class="fa fa-twitter solo"><span>Twitter</span></a></li>
 				<li><a href="<?php echo $loginUrl;?>" id="fb-login" class="fa fa-facebook solo"><span>Facebook</span></a></li>
