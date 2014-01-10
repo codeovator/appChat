@@ -10,7 +10,7 @@
 					}
 					var name=$('.my-name').html();
 					var locations = [
-					[name, <?php echo $result['latitude']?>, <?php echo $result['longitude']?>, 4],
+					[name, -33.723036, 151.269052, 4],
 					['Coogee Beach', -33.923036, 151.259052, 5],
 					['Cronulla Beach', -34.028249, 151.157507, 3],
 					['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
