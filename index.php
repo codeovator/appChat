@@ -16,6 +16,7 @@
  */
 
 require 'assets/facebook.php';
+// require 'assets/connect.php';
 
 // Create our Application instance (replace this with your appId and secret).
 $facebook = new Facebook(array(
@@ -87,21 +88,22 @@ $naitik = $facebook->api('/naitik');
 				<header>
 					<h1>IMApp</h1>
 					<p>Enter Name</p>
-					<input type="text" class="textbox"/>
+					<input type="text" name="user-name" id="user-name" class="textbox"/>
 				</header>
 				<footer>
-					<a href="#banner" class="button style2 scrolly scrolly-centered">Proceed as anticipated</a>
+					<a href="#banner" id="start-chat" class="button style2 scrolly scrolly-centered">Proceed as anticipated</a>
 				</footer>
 			</section>
+
 		
 		<!-- Banner -->
 			<section id="banner">
 				<header>
-					<h2>This is Overflow</h2>
+					<h2>It's Me</h2>
 				</header>
-				<p>A brand new site template designed by <a href="http://n33.co">AJ</a> for <a href="http://html5up.net/">HTML5 UP</a>.<br />
-				It’s fully responsive, built on <a href="http://skeljs.org">skelJS</a>, and of course entirely free<br />
-				under the <a href="http://html5up.net/license/">Creative Commons license</a>.</p>
+				<span class="badge">
+					<p class="my-name"></p>
+				</span>
 				<footer>
 					<a href="#first" class="button style2 scrolly">Act on this message</a>
 				</footer>
@@ -343,7 +345,7 @@ $naitik = $facebook->api('/naitik');
 		<section id="footer">
 			<ul class="icons">
 				<li><a href="#" class="fa fa-twitter solo"><span>Twitter</span></a></li>
-				<li><a href="#" class="fa fa-facebook solo"><span>Facebook</span></a></li>
+				<li><a href="<?php echo $loginUrl;?>" id="fb-login" class="fa fa-facebook solo"><span>Facebook</span></a></li>
 				<li><a href="#" class="fa fa-google-plus solo"><span>Google+</span></a></li>
 				<li><a href="#" class="fa fa-pinterest solo"><span>Pinterest</span></a></li>
 				<li><a href="#" class="fa fa-dribbble solo"><span>Dribbble</span></a></li>
