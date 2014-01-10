@@ -17,7 +17,7 @@ function getArea($user_profile){
 		$lon = $location->longitude;
 
 		if($user_profile=="none" && isset($userid)){
-			$sql = "UPDATE users SET lat=".$lat." AND long=".$lon." WHERE id=".$userid;
+			$sql = "UPDATE users SET lat=".$lat." AND long=".$lon." WHERE id=".userid;
 			mysql_query($sql);
 		}else{
 			$sql = "UPDATE users SET lat=".$lat." AND long=".$lon." WHERE fb_id=".$user_profile["id"];
@@ -39,7 +39,7 @@ function saveProfile($user_profile){
 	if($user_profile=="none"){
 		mysql_query("INSERT INTO users (name,is_online) VALUES ('guest','y')");
 		$id=mysql_insert_id();
-		define($userid, $id);
+		define('userid', $id);
 	}else{
 		$result = mysql_query("SELECT fb_id FROM users where fb_id='".$user_profile['id']."'");
 		if(!$result){
