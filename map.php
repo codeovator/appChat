@@ -14,10 +14,10 @@
 					var lat="<?php echo $result['longitude']?>";
 					var locations = [
 					[name, lang, lat , 4],
-					['Coogee Beach', lang+2, lat+2, 5],
-					['Cronulla Beach', lang+4, lat+4, 3],
-					['Manly Beach', lang+6, lat+6, 2],
-					['Maroubra Beach', lang+8, lat+8, 1]
+					['Coogee Beach', lang+0.2, lat+0.2, 5],
+					['Cronulla Beach', lang+0.4, lat+0.4, 3],
+					['Manly Beach', lang+0.6, lat+0.6, 2],
+					['Maroubra Beach', lang+0.8, lat+0.8, 1]
 					];
 
 					var map = new google.maps.Map(document.getElementById('map-div'), {
