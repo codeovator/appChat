@@ -1,5 +1,5 @@
 <?php 
-function getArea(){
+function getArea($user_profile){
 	$ip  = !empty($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
 	$url = "http://freegeoip.net/json/".$ip;
 	$ch  = curl_init();
@@ -16,13 +16,13 @@ function getArea(){
 		$lat = $location->latitude;
 		$lon = $location->longitude;
 
-		// if($user_profile=="none"){
-		// 	$sql = "UPDATE users SET lat=".$lat." AND long=".$lon." WHERE id=".$user_profile["id"];
-		// 	mysql_query($sql);
-		// }else{
-		// 	$sql = "UPDATE users SET lat=".$lat." AND long=".$lon." WHERE fb_id=".$user_profile["id"];
-		// 	mysql_query($sql);
-		// }
+		if($user_profile=="none" && isset($userid)){
+			$sql = "UPDATE users SET lat=".$lat." AND long=".$lon." WHERE id=".$userid;
+			mysql_query($sql);
+		}else{
+			$sql = "UPDATE users SET lat=".$lat." AND long=".$lon." WHERE fb_id=".$user_profile["id"];
+			mysql_query($sql);
+		}
 
 		// mysql_query("INSERT INTO users (lat, long) VALUES ('".$lat."','".$lon."')");
 		return array('latitude'=>$lat,'longitude'=>$lon);
@@ -37,15 +37,14 @@ function getAllLoggedUser(){
 
 function saveProfile($user_profile){
 	if($user_profile=="none"){
-		$result = getArea();
-		echo mysql_query("INSERT INTO users (name,lat,long,is_online) VALUES ('guest','".$result['latitude']."','".$result['longitude']."','y')");
+		mysql_query("INSERT INTO users (name,is_online) VALUES ('guest','y')");
+		$id=mysql_insert_id();
+		define($userid, $id)
 	}else{
 		$result = mysql_query("SELECT fb_id FROM users where fb_id='".$user_profile['id']."'");
 		if(!$result){
-			$result = getArea();
-			echo mysql_query("INSERT INTO users (name, gender,lat,long,fb_id,is_online) VALUES ('".$user_profile['first_name']."', '".$user_profile['gender']."','".$result['latitude']."','".$result['longitude']."','".$user_profile['id']."','y')");
+			mysql_query("INSERT INTO users (name, gender,fb_id,is_online) VALUES ('".$user_profile['first_name']."', '".$user_profile['gender']."','".$user_profile['id']."','y')");
 		}
 	}
-	die('ranjana');
 }
 ?>
