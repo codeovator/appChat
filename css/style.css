@@ -1325,6 +1325,64 @@
 	}
 
 	/*********************************************************************************/
+	/* chatroom                                                                        */
+	/*********************************************************************************/
+
+	#chatroom
+	{
+		position: relative;
+		color: #fff;
+		text-shadow: 0 0 0.5px rgba(255,255,255,0.25);
+		text-align: center;
+		background: #35b88f url('images/banner.svg') bottom center no-repeat;
+		padding: 5em 0 5em 0;
+		margin: 0;
+		background-size: 125% auto;
+	/*	margin: 10% 20%;
+		height: 300px;*/
+	}
+	#chatroom #map-div{margin: 0% 10%;width: 80%!important;}
+
+	#chatroom .button
+	{
+		color: #35b882;
+		text-shadow: 0 0 0.5px rgba(53,184,130,0.25);
+	}
+
+	#chatroom header
+	{
+		margin: 0 0 2em 0;
+	}
+
+	#chatroom header h2
+	{
+		font-weight: 400;
+		font-size: 1.75em;
+		letter-spacing: 8px;
+	}
+
+	#chatroom p
+	{
+		margin: 0;
+	}
+
+	#chatroom footer
+	{
+		margin: 2em 0 0 0;
+	}
+
+	#chatroom a
+	{
+		color: inherit;
+		border-bottom-color: rgba(255,255,255,0.5);
+	}
+
+	#chatroom a:hover
+	{
+		border-bottom-color: rgba(255,255,255,0);
+	}
+
+	/*********************************************************************************/
 	/* Footer                                                                        */
 	/*********************************************************************************/
 	

@@ -41,6 +41,12 @@ $(document).ready(function(){
 		}
 	});
 
+	$('#start-chatroom').click(function(){
+			$('#map').hide(200);
+			$('#chatroom').show(200);
+			$('#footer').hide();
+	});
+
 
 if($('#is_fb_logged').val()==1){
 	$('#header').hide();

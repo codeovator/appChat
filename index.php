@@ -143,6 +143,18 @@ if ($user) {
 		</footer>
 	</section>
 
+	<!-- Banner -->
+	<section id="chatroom">
+		<header>
+			<div id="image-dashboard"></div>
+			<p>Set Message</p>
+			<input type="text" name="user-name" id="user-name" class="textbox"/>
+		</header>
+		<footer>
+			<a href="#banner" id="ping" class="button style2 scrolly scrolly-centered">SMACK IN</a>
+		</footer>
+	</section>
+
 	<section id="article">
 		
 		<!-- Feature 1 -->
