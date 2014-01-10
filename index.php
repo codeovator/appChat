@@ -116,8 +116,8 @@ if ($user) {
 
 			<!-- Banner -->
 			<section id="map">
-			<?php echo getArea();?>
-				<img src="http://maps.googleapis.com/maps/api/staticmap?center=-15.800513,-47.91378&zoom=11&size=200x200&sensor=false">
+			<?php $result = getArea();?>
+				<img src="http://maps.googleapis.com/maps/api/staticmap?center=<?php echo $result['latitude'];?>,<?php echo $result['longitude'];?>&zoom=11&size=500x500&sensor=false">
 			</section>
 
 		<section id="article">

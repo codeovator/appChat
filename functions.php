@@ -16,7 +16,7 @@ function getArea(){
 		$lat = $location->latitude;
 		$lon = $location->longitude;
 
-		return $lat.' '.$lon;
+		return array('latitude'=>$lat,'longitude'=>$lon);
 	}	
 }
 ?>
