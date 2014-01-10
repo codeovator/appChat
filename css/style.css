@@ -478,6 +478,19 @@
 		box-shadow: inset 0 0 0 1px #fff;
 	}
 
+	#start-chat
+	{
+		color: white!important;
+		background: #35b88f!important;
+		box-shadow: inset 0 0 0 1px #fff!important;
+	}
+
+	#start-chat:hover
+	{
+		background: none!important;
+		color:#35b88f!important;
+	}
+
 	.button.style2:hover
 	{
 		background: rgba(255,255,255,0.1);
@@ -1128,6 +1141,7 @@
 		margin: 0;
 		padding: 14em 0 14em 0;
 		cursor: default;
+		margin-top: -150px;
 	}
 	
 	#header header
@@ -1141,6 +1155,7 @@
 		font-weight: 600;
 		font-size: 2em;
 		letter-spacing: 10px;
+		color:#35B88F;
 	}
 
 	#header header p
@@ -1553,4 +1568,74 @@
 		background-color: #999999;*/
 	}
 
+	.logo
+	{
+		width:75%;
+		height:75%;
+	}
+
+	.logo-title{
+		cursor: pointer;
+	}
+
+	.atlas-css{
+		color:white;
+		font-size: 55px;
+	}
+	.chat-css{
+		color:white;
+		font-size: 55px;
+	}
+
+	#fb-login{
+		width: 100%!important;
+	}
+	#fb-login:hover{
+		color:white!important;
+	}
+	#banner .me
+	{
+		width: 20em;
+		height: 20em;
+		margin: 0;
+	}
+
+	#banner .me
+	{
+		border-radius: 50%;
+		overflow: hidden;
+	}
+
+	#banner p
+	{
+	}
+	
+	#banner p a
+	{
+		color: inherit;
+	}
+	{
+		display: inline-block;
+	}
+	
+	#banner .image img
+	{
+		display: block;
+		width: 100%;
+	}
+
+	#banner .image-full
+	{
+		display: block;
+		width: 100%;
+		margin: 0 0 2em 0;
+	}
+
+	.profile-section{
+		width: 50%!important;
+		height: 20%!important;
+		background: white;
+		padding: 10%;
+		margin-left: 125%!important;
+	}
 

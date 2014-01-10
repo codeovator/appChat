@@ -87,24 +87,39 @@ if ($user) {
 	<!-- Header -->
 	<section id="header">
 		<header>
-			<h1>chatlas</h1>
-			<p>Enter Name</p>
+			<img class="logo" src="images/logo_chat.png"/>
+			<h1 class="logo-title"><span class="chat">chat</span><span class="atlas">las</span></h1>
+			<p>BANG in Your Name</p>
 			<input type="text" name="user-name" id="user-name" class="textbox"/>
 		</header>
 		<footer>
-			<a href="#banner" id="start-chat" class="button style2 scrolly scrolly-centered">Proceed as anticipated</a>
+			<a href="#banner" id="start-chat" class="button style2 scrolly scrolly-centered">SMACK IN</a>
 		</footer>
 	</section>
 
-	
+
 	<!-- Banner -->
 	<section id="banner">
 		<header>
-			<h2>It's Me</h2>
+			<!-- <h2>It's Me</h2> -->
 		</header>
 		<?php if ($user): ?>
-			<li>Hi <?php echo $user_profile['first_name'].' '.$user_profile['gender'];?></li>
+			<?php if($user_profile['gender']=="female"){?>
+			<div class="4u">
+				<span class="me image image-full profile-section"><img src="images/girl.png" alt=""></span>
+			</div>
+			<?php }else{?>
+			<div class="4u">
+				<span class="me image image-full profile-section"><img src="images/boy.png" alt=""></span>
+			</div>
+			<?php }?>
+			<span class="badge">
+				<p>Howdy <?php echo $user_profile['first_name'];?></p>
+			</span>
 		<?php else: ?>
+			<div class="4u">
+				<span class="me image image-full profile-section"><img src="images/sex-icon.png" alt=""></span>
+			</div>
 			<span class="badge">
 				<p class="my-name"></p>
 			</span>
@@ -133,7 +148,7 @@ if ($user) {
 					<p>Tortor faucibus ullamcorper nec tempus purus sed penatibus. Lacinia pellentesque eleifend vitae est elit tristique velit tempus etiam.</p>
 				</div>
 			</article>
-			
+
 			<!-- Feature 2 -->
 			<article class="container box style1 left">
 				<a href="http://ineedchemicalx.deviantart.com/art/Kingdom-of-the-Wind-348268044" class="image full"><img src="images/pic02.jpg" alt="" /></a>
@@ -145,7 +160,7 @@ if ($user) {
 						<p>Rhoncus mattis egestas sed fusce sodales rutrum et etiam ullamcorper. Etiam egestas scelerisque ac duis magna lorem ipsum dolor.</p>
 					</div>
 				</article>
-				
+
 				<!-- Portfolio -->
 				<article class="container box style2">
 					<header>
@@ -168,7 +183,7 @@ if ($user) {
 							</div>
 						</div>
 					</article>
-					
+
 					<!-- Contact -->
 					<article class="container box style3">
 						<header>
@@ -194,7 +209,7 @@ if ($user) {
 							</div>
 						</form>
 					</article>
-					
+
 					<!-- Generic -->
 		<!--
 			<article class="container box style3">
@@ -352,7 +367,7 @@ if ($user) {
 			</article>
 		-->
 	</section>
-	
+
 	<section id="footer">
 		<?php if ($user): ?>
 
@@ -362,13 +377,14 @@ if ($user) {
 			</ul>
 		<?php else: ?>
 			
-			<ul class="icons">
-				<li><a href="#" class="fa fa-twitter solo"><span>Twitter</span></a></li>
+			<ul class="icons" style="background:#35619E;">
+				<!-- <li><a href="#" class="fa fa-twitter solo"><span>Twitter</span></a></li>
 				<li><a href="<?php echo $loginUrl;?>" id="fb-login" class="fa fa-facebook solo"><span>Facebook</span></a></li>
 				<li><a href="#" class="fa fa-google-plus solo"><span>Google+</span></a></li>
 				<li><a href="#" class="fa fa-pinterest solo"><span>Pinterest</span></a></li>
 				<li><a href="#" class="fa fa-dribbble solo"><span>Dribbble</span></a></li>
-				<li><a href="#" class="fa fa-linkedin solo"><span>LinkedIn</span></a></li>
+				<li><a href="#" class="fa fa-linkedin solo"><span>LinkedIn</span></a></li> -->
+				<li><a href="<?php echo $loginUrl;?>" id="fb-login" class="fb">Dive in with FACEBOOK</a></li>
 			</ul>
 		<?php  endif;?>
 			<!-- <div class="copyright">
