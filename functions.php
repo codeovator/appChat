@@ -16,7 +16,7 @@ function getArea(){
 		$lat = $location->latitude;
 		$lon = $location->longitude;
 
-		mysqli_query($con,"INSERT INTO users (lat, long) VALUES ('".$lat."','".$lon."')");
+		mysql_query("INSERT INTO users (lat, long) VALUES ('".$lat."','".$lon."')");
 		return array('latitude'=>$lat,'longitude'=>$lon);
 	}	
 }
@@ -28,6 +28,6 @@ function getAllLoggedUser(){
 }
 
 function saveProfile($user_profile){
-	mysqli_query("INSERT INTO users (name, gender,fb_id,is_online) VALUES ('".$user_profile['first_name']."', '".$user_profile['gender']."','".$user_profile['id']."',1)");
+	mysql_query("INSERT INTO users (name, gender,fb_id,is_online) VALUES ('".$user_profile['first_name']."', '".$user_profile['gender']."','".$user_profile['id']."',1)");
 }
 ?>
