@@ -16,7 +16,7 @@
  */
 
 require 'assets/facebook.php';
-// require 'assets/connect.php';
+require 'assets/connect.php';
 
 // Create our Application instance (replace this with your appId and secret).
 $facebook = new Facebook(array(
@@ -64,7 +64,7 @@ $naitik = $facebook->api('/naitik');
 -->
 <html>
 	<head>
-		<title>AppChat</title>
+		<title>chatlas</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -86,7 +86,7 @@ $naitik = $facebook->api('/naitik');
 		<!-- Header -->
 			<section id="header">
 				<header>
-					<h1>IMApp</h1>
+					<h1>chatlas</h1>
 					<p>Enter Name</p>
 					<input type="text" name="user-name" id="user-name" class="textbox"/>
 				</header>
@@ -343,6 +343,9 @@ $naitik = $facebook->api('/naitik');
 		</section>
 		
 		<section id="footer">
+			<?php if ($user): ?>
+				<a href="<?php echo $logoutUrl; ?>">Logout</a>
+			<?php else: ?>
 			<ul class="icons">
 				<li><a href="#" class="fa fa-twitter solo"><span>Twitter</span></a></li>
 				<li><a href="<?php echo $loginUrl;?>" id="fb-login" class="fa fa-facebook solo"><span>Facebook</span></a></li>
@@ -351,13 +354,14 @@ $naitik = $facebook->api('/naitik');
 				<li><a href="#" class="fa fa-dribbble solo"><span>Dribbble</span></a></li>
 				<li><a href="#" class="fa fa-linkedin solo"><span>LinkedIn</span></a></li>
 			</ul>
-			<div class="copyright">
+		<?php  endif;?>
+			<!-- <div class="copyright">
 				<ul class="menu">
 					<li>&copy; Untitled. All rights reserved.</li>
 					<li>Design: <a href="http://html5up.net/">HTML5 UP</a></li>
 					<li>Demo Images: <a href="http://ineedchemicalx.deviantart.com">Felicia Simion</a></li>
 				</ul>
-			</div>
+			</div> -->
 		</section>
 
 	</body>

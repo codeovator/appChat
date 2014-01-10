@@ -1,9 +1,9 @@
 <?php
-db => array(
-'connectionString' => 'mysql:host=cyclops.cgpfeputg7xh.us-east-1.rds.amazonaws.com;dbname=cyclops',
-'emulatePrepare' => true,
-'username' => 'cyclops',
-'password' => 'testtest1234',
-'charset' => 'utf8',
-);
+
+$host = "cyclops.cgpfeputg7xh.us-east-1.rds.amazonaws.com";
+$username =  'cyclops';
+$password = 'testtest1234';
+$db="chatlas";
+mysql_connect($host,$username,$password) or die('not able to connect');
+mysql_select_db($db) or die('not able to connect to db');;
 ?>
