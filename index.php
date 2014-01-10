@@ -21,9 +21,9 @@ require 'functions.php';
 
 // Create our Application instance (replace this with your appId and secret).
 $facebook = new Facebook(array(
-  'appId'  => '1434847386732269',
-  'secret' => '1c500d02a9a8c52dd1b8fd84546ec172',
-));
+	'appId'  => '1434847386732269',
+	'secret' => '1c500d02a9a8c52dd1b8fd84546ec172',
+	));
 
 // Get User ID
 $user = $facebook->getUser();
@@ -35,21 +35,21 @@ $user = $facebook->getUser();
 // token is invalid if the user logged out of Facebook.
 
 if ($user) {
-  try {
+	try {
     // Proceed knowing you have a logged in user who's authenticated.
-    $user_profile = $facebook->api('/me');
-  } catch (FacebookApiException $e) {
-    error_log($e);
-    $user = null;
-  }
+		$user_profile = $facebook->api('/me');
+	} catch (FacebookApiException $e) {
+		error_log($e);
+		$user = null;
+	}
 }
 
 // Login or logout url will be needed depending on current user state.
 if ($user) {
-  $logoutUrl = $facebook->getLogoutUrl();
+	$logoutUrl = $facebook->getLogoutUrl();
 } else {
-  $statusUrl = $facebook->getLoginStatusUrl();
-  $loginUrl = $facebook->getLoginUrl();
+	$statusUrl = $facebook->getLoginStatusUrl();
+	$loginUrl = $facebook->getLoginUrl();
 }
 
 // This call will always work since we are fetching public data.
@@ -63,139 +63,139 @@ if ($user) {
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>chatlas</title>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic" rel="stylesheet" type="text/css" />
-		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/jquery.poptrox.min.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/init.js"></script>
-		<script src="js/functions.js"></script>
-		<noscript>
-			<link rel="stylesheet" href="css/skel-noscript.css" />
-			<link rel="stylesheet" href="css/style.css" />
-		</noscript>
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-	</head>
-	<body>
-		<input type="hidden" value="<?php echo $user?'1':'0';?>" id="is_fb_logged"/>
+<head>
+	<title>chatlas</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic" rel="stylesheet" type="text/css" />
+	<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.poptrox.min.js"></script>
+	<script src="js/skel.min.js"></script>
+	<script src="js/init.js"></script>
+	<script src="js/functions.js"></script>
+	<noscript>
+		<link rel="stylesheet" href="css/skel-noscript.css" />
+		<link rel="stylesheet" href="css/style.css" />
+	</noscript>
+	<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+</head>
+<body>
+	<input type="hidden" value="<?php echo $user?'1':'0';?>" id="is_fb_logged"/>
 
-		<!-- Header -->
-			<section id="header">
-				<header>
-					<h1>chatlas</h1>
-					<p>Enter Name</p>
-					<input type="text" name="user-name" id="user-name" class="textbox"/>
-				</header>
-				<footer>
-					<a href="#banner" id="start-chat" class="button style2 scrolly scrolly-centered">Proceed as anticipated</a>
-				</footer>
-			</section>
+	<!-- Header -->
+	<section id="header">
+		<header>
+			<h1>chatlas</h1>
+			<p>Enter Name</p>
+			<input type="text" name="user-name" id="user-name" class="textbox"/>
+		</header>
+		<footer>
+			<a href="#banner" id="start-chat" class="button style2 scrolly scrolly-centered">Proceed as anticipated</a>
+		</footer>
+	</section>
 
-		
-		<!-- Banner -->
-			<section id="banner">
-				<header>
-					<h2>It's Me</h2>
-				</header>
-				<?php if ($user): ?>
-				<li>Hi <?php echo $user_profile['first_name'].' '.$user_profile['gender'];?></li>
-			<?php else: ?>
-				<span class="badge">
-					<p class="my-name"></p>
-				</span>
-			<?php endif;?>
-				<footer>
-					<a href="#first" id="start-map" class="button style2 scrolly">Act on this message</a>
-				</footer>
-			</section>
+	
+	<!-- Banner -->
+	<section id="banner">
+		<header>
+			<h2>It's Me</h2>
+		</header>
+		<?php if ($user): ?>
+			<li>Hi <?php echo $user_profile['first_name'].' '.$user_profile['gender'];?></li>
+		<?php else: ?>
+			<span class="badge">
+				<p class="my-name"></p>
+			</span>
+		<?php endif;?>
+		<footer>
+			<a href="#first" id="start-map" class="button style2 scrolly">Act on this message</a>
+		</footer>
+	</section>
 
-			<!-- Banner -->
-			<section id="map">
-			<?php $result = getArea();?>
-				<img src="http://maps.googleapis.com/maps/api/staticmap?center=<?php echo $result['latitude'];?>,<?php echo $result['longitude'];?>&zoom=11&size=500x500&sensor=false">
-			</section>
+	<!-- Banner -->
+	<section id="map">
+		<?php $result = getArea();?>
+		<img src="http://maps.googleapis.com/maps/api/staticmap?center=<?php echo $result['latitude'];?>,<?php echo $result['longitude'];?>&zoom=20&size=200x200&sensor=false">
+	</section>
 
-		<section id="article">
+	<section id="article">
 		
 		<!-- Feature 1 -->
-			<article id="first" class="container box style1 right">
-				<a href="http://ineedchemicalx.deviantart.com/art/Time-goes-by-too-fast-335982438" class="image full"><img src="images/pic01.jpg" alt="" /></a>
-				<div class="inner">
-					<header>
-						<h2>Lorem ipsum<br />
+		<article id="first" class="container box style1 right">
+			<a href="http://ineedchemicalx.deviantart.com/art/Time-goes-by-too-fast-335982438" class="image full"><img src="images/pic01.jpg" alt="" /></a>
+			<div class="inner">
+				<header>
+					<h2>Lorem ipsum<br />
 						dolor sit amet</h2>
 					</header>
 					<p>Tortor faucibus ullamcorper nec tempus purus sed penatibus. Lacinia pellentesque eleifend vitae est elit tristique velit tempus etiam.</p>
 				</div>
 			</article>
-		
-		<!-- Feature 2 -->
+			
+			<!-- Feature 2 -->
 			<article class="container box style1 left">
 				<a href="http://ineedchemicalx.deviantart.com/art/Kingdom-of-the-Wind-348268044" class="image full"><img src="images/pic02.jpg" alt="" /></a>
 				<div class="inner">
 					<header>
 						<h2>Mollis posuere<br />
-						lectus lacus</h2>
-					</header>
-					<p>Rhoncus mattis egestas sed fusce sodales rutrum et etiam ullamcorper. Etiam egestas scelerisque ac duis magna lorem ipsum dolor.</p>
-				</div>
-			</article>
-		
-		<!-- Portfolio -->
-			<article class="container box style2">
-				<header>
-					<h2>Magnis parturient</h2>
-					<p>Justo phasellus et aenean dignissim<br />
-					placerat cubilia purus lectus.</p>
-				</header>
-				<div class="inner gallery">
-					<div class="row flush">
-						<div class="3u"><a href="images/fulls/01.jpg" class="image full"><img src="images/thumbs/01.jpg" alt="" title="Ad infinitum" /></a></div>
-						<div class="3u"><a href="images/fulls/02.jpg" class="image full"><img src="images/thumbs/02.jpg" alt="" title="Dressed in Clarity" /></a></div>
-						<div class="3u"><a href="images/fulls/03.jpg" class="image full"><img src="images/thumbs/03.jpg" alt="" title="Raven" /></a></div>
-						<div class="3u"><a href="images/fulls/04.jpg" class="image full"><img src="images/thumbs/04.jpg" alt="" title="I'll have a cup of Disneyland, please" /></a></div>
+							lectus lacus</h2>
+						</header>
+						<p>Rhoncus mattis egestas sed fusce sodales rutrum et etiam ullamcorper. Etiam egestas scelerisque ac duis magna lorem ipsum dolor.</p>
 					</div>
-					<div class="row flush">
-						<div class="3u"><a href="images/fulls/05.jpg" class="image full"><img src="images/thumbs/05.jpg" alt="" title="Cherish" /></a></div>
-						<div class="3u"><a href="images/fulls/06.jpg" class="image full"><img src="images/thumbs/06.jpg" alt="" title="Different." /></a></div>
-						<div class="3u"><a href="images/fulls/07.jpg" class="image full"><img src="images/thumbs/07.jpg" alt="" title="History was made here" /></a></div>
-						<div class="3u"><a href="images/fulls/08.jpg" class="image full"><img src="images/thumbs/08.jpg" alt="" title="People come and go and walk away" /></a></div>
-					</div>
-				</div>
-			</article>
-		
-		<!-- Contact -->
-			<article class="container box style3">
-				<header>
-					<h2>Nisl sed ultricies</h2>
-					<p>Diam dignissim lectus eu ornare volutpat orci.</p>
-				</header>
-				<form>
-					<div class="row half">
-						<div class="6u"><input type="text" class="text" name="name" placeholder="Name" /></div>
-						<div class="6u"><input type="text" class="text" name="email" placeholder="Email" /></div>
-					</div>
-					<div class="row half">
-						<div class="12u">
-							<textarea name="message" placeholder="Message"></textarea>
+				</article>
+				
+				<!-- Portfolio -->
+				<article class="container box style2">
+					<header>
+						<h2>Magnis parturient</h2>
+						<p>Justo phasellus et aenean dignissim<br />
+							placerat cubilia purus lectus.</p>
+						</header>
+						<div class="inner gallery">
+							<div class="row flush">
+								<div class="3u"><a href="images/fulls/01.jpg" class="image full"><img src="images/thumbs/01.jpg" alt="" title="Ad infinitum" /></a></div>
+								<div class="3u"><a href="images/fulls/02.jpg" class="image full"><img src="images/thumbs/02.jpg" alt="" title="Dressed in Clarity" /></a></div>
+								<div class="3u"><a href="images/fulls/03.jpg" class="image full"><img src="images/thumbs/03.jpg" alt="" title="Raven" /></a></div>
+								<div class="3u"><a href="images/fulls/04.jpg" class="image full"><img src="images/thumbs/04.jpg" alt="" title="I'll have a cup of Disneyland, please" /></a></div>
+							</div>
+							<div class="row flush">
+								<div class="3u"><a href="images/fulls/05.jpg" class="image full"><img src="images/thumbs/05.jpg" alt="" title="Cherish" /></a></div>
+								<div class="3u"><a href="images/fulls/06.jpg" class="image full"><img src="images/thumbs/06.jpg" alt="" title="Different." /></a></div>
+								<div class="3u"><a href="images/fulls/07.jpg" class="image full"><img src="images/thumbs/07.jpg" alt="" title="History was made here" /></a></div>
+								<div class="3u"><a href="images/fulls/08.jpg" class="image full"><img src="images/thumbs/08.jpg" alt="" title="People come and go and walk away" /></a></div>
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="12u">
-							<ul class="actions">
-								<li><a href="#" class="button form">Send Message</a></li>
-							</ul>
-						</div>
-					</div>
-				</form>
-			</article>
-		
-		<!-- Generic -->
+					</article>
+					
+					<!-- Contact -->
+					<article class="container box style3">
+						<header>
+							<h2>Nisl sed ultricies</h2>
+							<p>Diam dignissim lectus eu ornare volutpat orci.</p>
+						</header>
+						<form>
+							<div class="row half">
+								<div class="6u"><input type="text" class="text" name="name" placeholder="Name" /></div>
+								<div class="6u"><input type="text" class="text" name="email" placeholder="Email" /></div>
+							</div>
+							<div class="row half">
+								<div class="12u">
+									<textarea name="message" placeholder="Message"></textarea>
+								</div>
+							</div>
+							<div class="row">
+								<div class="12u">
+									<ul class="actions">
+										<li><a href="#" class="button form">Send Message</a></li>
+									</ul>
+								</div>
+							</div>
+						</form>
+					</article>
+					
+					<!-- Generic -->
 		<!--
 			<article class="container box style3">
 				<header>
@@ -351,15 +351,17 @@ if ($user) {
 				</section>
 			</article>
 		-->
-		</section>
-		
-		<section id="footer">
+	</section>
+	
+	<section id="footer">
+		<?php if ($user): ?>
+
 			<ul class="icons">
-			<?php if ($user): ?>
 				<li>Hi <?php echo $user_profile['first_name'];?></li>
 				<li><a href="<?php echo $logoutUrl; ?>">Logout</a></li>
-			<?php else: ?>
 			</ul>
+		<?php else: ?>
+			
 			<ul class="icons">
 				<li><a href="#" class="fa fa-twitter solo"><span>Twitter</span></a></li>
 				<li><a href="<?php echo $loginUrl;?>" id="fb-login" class="fa fa-facebook solo"><span>Facebook</span></a></li>
@@ -379,4 +381,4 @@ if ($user) {
 		</section>
 
 	</body>
-</html>
+	</html>
