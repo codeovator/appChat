@@ -71,6 +71,8 @@ if ($user) {
 	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic" rel="stylesheet" type="text/css" />
 	<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
 	<script src="js/jquery.min.js"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=false" 
+	type="text/javascript"></script>
 	<script src="js/jquery.poptrox.min.js"></script>
 	<script src="js/skel.min.js"></script>
 	<script src="js/init.js"></script>
@@ -132,7 +134,11 @@ if ($user) {
 	<!-- Banner -->
 	<section id="map">
 		<?php $result = getArea();?>
-		<img src="http://maps.googleapis.com/maps/api/staticmap?center=<?php echo $result['latitude'];?>,<?php echo $result['longitude'];?>&zoom=20&size=200x200&sensor=false">
+		<!-- <img src="http://maps.googleapis.com/maps/api/staticmap?center=<?php echo $result['latitude'];?>,<?php echo $result['longitude'];?>&zoom=20&size=200x200&sensor=false"> -->
+		<div id="map-div" style="width: 500px; height: 400px;"></div>
+		<footer>
+			<a href="#first" id="start-chatroom" class="button style2 scrolly">Go to CHATROOM</a>
+		</footer>
 	</section>
 
 	<section id="article">
@@ -395,6 +401,6 @@ if ($user) {
 				</ul>
 			</div> -->
 		</section>
-
-	</body>
-	</html>
+		<?php include('map.php'); ?>
+</body>
+</html>

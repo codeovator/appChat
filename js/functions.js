@@ -41,20 +41,10 @@ $(document).ready(function(){
 		}
 	});
 
-	$('#start-map').click(function(){
-		if($('#is_fb_logged').val()==1){
-			$('#banner').hide(200);
-			$('#map').show(200);
-		}else{
-			$('#banner').hide(200);
-			$('#map').show(200);
-		}
-	});
 
-
-	if($('#is_fb_logged').val()==1){
-		$('#header').hide();
-		$('#banner').show();
-	}
+if($('#is_fb_logged').val()==1){
+	$('#header').hide();
+	$('#banner').show();
+}
 
 });
