@@ -16,7 +16,7 @@ function getArea($user_profile){
 		$lat = $location->latitude;
 		$lon = $location->longitude;
 
-		$sql = "UPDATE users SET lat=".$lat." AND long=".$long." WHERE fb_id=".$user_profile["id"];
+		echo $sql = "UPDATE users SET lat=".$lat." AND long=".$long." WHERE fb_id=".$user_profile["id"];
 		mysql_query($sql);
 
 		// mysql_query("INSERT INTO users (lat, long) VALUES ('".$lat."','".$lon."')");
