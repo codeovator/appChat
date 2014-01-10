@@ -1,5 +1,5 @@
 <?php 
-function getArea($user_profile){
+function getArea(){
 	$ip  = !empty($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
 	$url = "http://freegeoip.net/json/".$ip;
 	$ch  = curl_init();
