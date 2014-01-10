@@ -1,3 +1,60 @@
+<?php
+/**
+ * Copyright 2011 Facebook, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may
+ * not use this file except in compliance with the License. You may obtain
+ * a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the Licenssdfe is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+require 'assets/facebook.php';
+
+// Create our Application instance (replace this with your appId and secret).
+$facebook = new Facebook(array(
+  'appId'  => '1434847386732269',
+  'secret' => '1c500d02a9a8c52dd1b8fd84546ec172',
+));
+
+// Get User ID
+$user = $facebook->getUser();
+
+// We may or may not have this data based on whether the user is logged in.
+//
+// If we have a $user id here, it means we know the user is logged into
+// Facebook, but we don't know if the access token is valid. An access
+// token is invalid if the user logged out of Facebook.
+
+if ($user) {
+  try {
+    // Proceed knowing you have a logged in user who's authenticated.
+    $user_profile = $facebook->api('/me');
+  } catch (FacebookApiException $e) {
+    error_log($e);
+    $user = null;
+  }
+}
+
+// Login or logout url will be needed depending on current user state.
+if ($user) {
+  $logoutUrl = $facebook->getLogoutUrl();
+} else {
+  $statusUrl = $facebook->getLoginStatusUrl();
+  $loginUrl = $facebook->getLoginUrl();
+}
+
+// This call will always work since we are fetching public data.
+$naitik = $facebook->api('/naitik');
+
+?>
+
 <!DOCTYPE HTML>
 <!--
 	Overflow 1.1 by HTML5 UP
@@ -6,7 +63,7 @@
 -->
 <html>
 	<head>
-		<title>Overflow by HTML5 UP</title>
+		<title>AppChat</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -16,6 +73,7 @@
 		<script src="js/jquery.poptrox.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/init.js"></script>
+		<script src="js/functions.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel-noscript.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -27,8 +85,9 @@
 		<!-- Header -->
 			<section id="header">
 				<header>
-					<h1>Overflow</h1>
-					<p>By HTML5 UP</p>
+					<h1>IMApp</h1>
+					<p>Enter Name</p>
+					<input type="text" class="textbox"/>
 				</header>
 				<footer>
 					<a href="#banner" class="button style2 scrolly scrolly-centered">Proceed as anticipated</a>
@@ -47,6 +106,8 @@
 					<a href="#first" class="button style2 scrolly">Act on this message</a>
 				</footer>
 			</section>
+
+		<section id="article">
 		
 		<!-- Feature 1 -->
 			<article id="first" class="container box style1 right">
@@ -277,6 +338,7 @@
 				</section>
 			</article>
 		-->
+		</section>
 		
 		<section id="footer">
 			<ul class="icons">
