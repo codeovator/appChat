@@ -54,7 +54,25 @@ if ($user) {
 // This call will always work since we are fetching public data.
 // $naitik = $facebook->api('/naitik');
 
+$ip  = !empty($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
+$url = "http://freegeoip.net/json/$ip";
+$ch  = curl_init();
 
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+$data = curl_exec($ch);
+curl_close($ch);
+
+if ($data) {
+    $location = json_decode($data);
+
+    $lat = $location->latitude;
+    $lon = $location->longitude;
+
+    $sun_info = date_sun_info(time(), $lat, $lon);
+    print_r($sun_info);
+}
 ?>
 
 <!DOCTYPE HTML>
@@ -117,7 +135,7 @@ if ($user) {
 
 			<!-- Banner -->
 			<section id="map">
-				<img src="http://maps.googleapis.com/maps/api/streetview?size=500x500&location=40.720032,-73.988354&heading=235&sensor=false">
+				<img src="http://maps.googleapis.com/maps/api/staticmap?center=-15.800513,-47.91378&zoom=11&size=200x200&sensor=false">
 			</section>
 
 		<section id="article">
