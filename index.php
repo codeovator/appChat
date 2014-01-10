@@ -55,7 +55,7 @@ if ($user) {
 // This call will always work since we are fetching public data.
 // $naitik = $facebook->api('/naitik');
 ?>
-
+<?php $result = getArea();?>
 <!DOCTYPE HTML>
 <!--
 	Overflow 1.1 by HTML5 UP
@@ -133,7 +133,6 @@ if ($user) {
 
 	<!-- Banner -->
 	<section id="map">
-		<?php $result = getArea();?>
 		<!-- <img src="http://maps.googleapis.com/maps/api/staticmap?center=<?php echo $result['latitude'];?>,<?php echo $result['longitude'];?>&zoom=20&size=200x200&sensor=false"> -->
 		<div id="map-div" style="width: 500px; height: 400px;"></div>
 		<footer>
