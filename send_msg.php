@@ -182,11 +182,14 @@
             <li><img src="" id="latest_img" class="allimg" /></li>
             <?php 
         //get all images
-            $res = mysql_query("select picture from conversation order by id desc");
+            $res = mysql_query("select picture from conversation where picture is not null order by id desc");
             while($row = mysql_fetch_array($res)){
+              //echo '=='.$row['picture'];
+              if(file_exists($row['picture'])){
             ?>
-            <li><img src="<?php echo $row; ?>" class="allimg" /></li>
+            <li><img src="<?php echo $row['picture']; ?>" class="allimg" /></li>
             <?php
+              }
             }
             ?>
             <li><img src="post_images/img_1174025557_140111_050523" class="allimg" /></li>
