@@ -184,9 +184,9 @@
             ?>
             <li><img src="" id="latest_img" class="allimg" /></li>
             <li><img src="post_images/img_1174025557_140111_050523" class="allimg" /></li>
-            <li><img src="post_images/new_img_1174025557_140111_050523" class="allimg"/></li>
-            <!--<li><img src="new_img_1174025557_140111_050523"/></li>
-            <li><img src="new_img_1174025557_140111_050523"/></li> -->
+            <li><img src="post_images/new_img_942533377_140111_062406" class="allimg"/></li>
+            <li><img src="post_images/new_img_1321478248_140111_010628"/></li>
+            <li><img src="post_images/new_img_610419253_140111_010711"/></li> 
           </ul>
         </div>
       </section>
