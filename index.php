@@ -140,7 +140,7 @@ if ($user) {
 		<!-- <img src="http://maps.googleapis.com/maps/api/staticmap?center=<?php echo $result['latitude'];?>,<?php echo $result['longitude'];?>&zoom=20&size=200x200&sensor=false"> -->
 		<div id="map-div" style="width: 500px; height: 400px;"></div>
 		<footer>
-			<a href="#first" id="start-chatroom" class="button style2 scrolly">Go to CHATROOM</a>
+			<a href="#first" id="start-chatroom" class="button style2 scrolly">Start IMAGECHAT</a>
 		</footer>
 	</section>
 
@@ -153,7 +153,7 @@ if ($user) {
 			<input type="text" name="msg" id="user-message" class="textbox"/>
 		</header>
 		<footer>
-			<a href="#banner" id="ping" class="button style2 scrolly scrolly-centered">SMACK IN</a>
+			<a href="#banner" id="ping" class="button style2 scrolly scrolly-centered">POST IT</a>
 		</footer>
 		</form>
 	</section>
