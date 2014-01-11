@@ -1,5 +1,5 @@
   <?php
-   $msg = $_REQUEST['msg'];
+   $msg = isset($_REQUEST['msg'])?$_REQUEST['msg']:'';
 //   require 'assets/facebook.php';
 //   require 'assets/connect.php';
 //   require 'functions.php';
@@ -176,13 +176,17 @@
     <body style="font-family: Arial;border: 0 none;">
     <div id="branding"  style="float: left;display:none"></div><br />
       <div id="content" style="display:none">Loading...</div>
-      <section id="dashboard">
+      <section id="dashboard" style="margin-top: -5%;">
         <div class="content">
           <ul>
             <?php 
         //get all images
             ?>
-            <li><img src="" id="latest_img"/></li>
+            <li><img src="" id="latest_img" class="allimg" /></li>
+            <li><img src="post_images/img_1174025557_140111_050523" class="allimg" /></li>
+            <li><img src="post_images/new_img_1174025557_140111_050523" class="allimg"/></li>
+            <!--<li><img src="new_img_1174025557_140111_050523"/></li>
+            <li><img src="new_img_1174025557_140111_050523"/></li> -->
           </ul>
         </div>
       </section>
