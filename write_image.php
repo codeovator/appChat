@@ -1,4 +1,5 @@
 <?php
+require 'assets/connect.php';
 //header('Content-type: image/jpeg');
 	$img_name = 'img_'.rand().'_'.date('ymd_his');
 	$ch = curl_init($_REQUEST['img_url']);
@@ -39,7 +40,7 @@
 
       // Print Text On Image
       //imagestring($jpg_image, 865, 229, 290, $text, $white);
-      imagettftext($jpg_image, $orig_width/strlen($text), 0, 355, $orig_height/2, $white, $font_path, $text);
+      imagettftext($jpg_image, $orig_width/strlen($text), 0, 205, $orig_height/2, $white, $font_path, $text);
 
       // Send Image to Browser
       imagejpeg($jpg_image, 'post_images/new_'.$img_name);
@@ -53,6 +54,7 @@
         
       imagejpeg($new_image, 'post_images/new_'.$img_name);
       // END
+      mysql_query("INSERT INTO conversation (msg, sent_on, picture) VALUES ('".$text."', '".date('Y-m-d H:i:s')."', 'post_images/new_".$img_name."')");
 
       echo 'post_images/new_'.$img_name;
       // Clear Memory

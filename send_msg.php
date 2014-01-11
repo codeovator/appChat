@@ -1,7 +1,7 @@
   <?php
    $msg = isset($_REQUEST['msg'])?$_REQUEST['msg']:'';
 //   require 'assets/facebook.php';
-//   require 'assets/connect.php';
+  require 'assets/connect.php';
 //   require 'functions.php';
 
 // // Create our Application instance (replace this with your appId and secret).
@@ -179,10 +179,16 @@
       <section id="dashboard" style="margin-top: -5%;">
         <div class="content">
           <ul>
+            <li><img src="" id="latest_img" class="allimg" /></li>
             <?php 
         //get all images
+            $res = mysql_query("select picture from conversation order by id desc");
+            while($row = mysql_fetch_array($res)){
             ?>
-            <li><img src="" id="latest_img" class="allimg" /></li>
+            <li><img src="<?php echo $row; ?>" class="allimg" /></li>
+            <?php
+            }
+            ?>
             <li><img src="post_images/img_1174025557_140111_050523" class="allimg" /></li>
             <li><img src="post_images/new_img_942533377_140111_062406" class="allimg"/></li>
             <li><img src="post_images/new_img_1321478248_140111_010628"/></li>
